@@ -1,0 +1,16 @@
+
+[1mFrom:[0m /home/ricecake/Development/code/phase-3/phase-3-ruby-oo-self-person-lab/lib/person.rb:63 Person#call_friend:
+
+    [1;34m53[0m: [32mdef[0m [1;34mcall_friend[0m person
+    [1;34m54[0m:     [1;34m#Where I was stuck next.  Person non-attribute instance methods #call_friend makes the friend happier by three points[0m
+    [1;34m55[0m:     [1;34m#  Failure/Error: expect(felix.happiness).to eq(8)[0m
+    [1;34m56[0m:     [1;34m#  [0m
+    [1;34m57[0m:     [1;34m#  expected: 8[0m
+    [1;34m58[0m:     [1;34m#   got: 5[0m
+    [1;34m59[0m:     [1;34m# What I tried: Adding 3 points of happiness to the new person instance: @person = Person.new("Felix", happiness + 3). Because it follows the parameters pattern, name then happiness. But this breaks my code. So I'm missing something. Could it be felix.happiness += 3? NOPE. Confuses our self method. Which is fair because the self is applying to Penelope here. Binding.pry made person.happiness + 3 work specifically for Felix.. Hmm what's going on? Felix has an initial happiness value of 8, which makes sense. So maybe I shouldn't have created a new person: @person = Person.new("Felix")?? Let's see what Princeton does, as the error states expected 8 got 5..?? Wow. I misunderstood the accepts one argument an instance of the Person Class. Princeton used: call_friend friend. It works. I need to stop creating instances and assuming they want more than what they asked for. Because it makes sense that me creating a new person gave them an initial value of 8 while just passing an argument gave the friend their own values from the test. [0m
+    [1;34m60[0m:     [1;36mself[0m.happiness += [1;34m3[0m
+    [1;34m61[0m:     person.happiness 
+    [1;34m62[0m:     
+ => [1;34m63[0m:     binding.pry
+    [1;34m64[0m: [32mend[0m
+
